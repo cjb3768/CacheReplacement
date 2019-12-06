@@ -1,3 +1,5 @@
+#pragma once
+
 #include "naivelru.h"
 #include <list>
 #include <unordered_map>
@@ -13,4 +15,5 @@ class LRUCache: public NaiveLRUCache
 
     LRUCache(int cs): NaiveLRUCache(cs){};
 
+    void access_value(int value);
 };

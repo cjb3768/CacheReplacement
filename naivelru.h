@@ -1,10 +1,12 @@
+#pragma once
+
 #include <list>
 
 using namespace std;
 
 class NaiveLRUCache
 {
-  private:
+  protected:
     list<int> cache_list;
     int cache_size;
 

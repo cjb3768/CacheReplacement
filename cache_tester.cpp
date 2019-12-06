@@ -1,4 +1,6 @@
+#include <iostream>
 #include "naivelru.h"
+#include "lru.h"
 
 using namespace std;
 
@@ -24,6 +26,8 @@ int main()
   cache0.access_value(5);
   cache0.access_value(6);
   cache0.print_cache();
+
+  cout << "+++++++++++++++++\n";
 
   //Verify basic functionality of smarter lru cache
   LRUCache cache1 = LRUCache(5);
