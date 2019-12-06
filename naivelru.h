@@ -2,7 +2,8 @@
 
 using namespace std;
 
-class NaiveLRUCache{
+class NaiveLRUCache
+{
   private:
     list<int> cache_list;
     int cache_size;
