@@ -1,4 +1,4 @@
-#include "lru.h"
+#include "naivelru.h"
 
 using namespace std;
 
@@ -6,7 +6,7 @@ int main()
 {
   //Verify basic functionality
   //create a 5 slot cache
-  LRUCache cache0 = LRUCache(5);
+  NaiveLRUCache cache0 = NaiveLRUCache(5);
 
   //test accessing a value not present
   cache0.print_cache();

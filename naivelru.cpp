@@ -1,10 +1,9 @@
 #include <iostream>
-#include <list>
-#include "lru.h"
+#include "naivelru.h"
 
 using namespace std;
 
-void LRUCache::access_value(int value)
+void NaiveLRUCache::access_value(int value)
 {
   //Naive implementation; navigate the whole list and see if value is in the list.
   cout << "-----------------------------\n";
@@ -46,7 +45,7 @@ void LRUCache::access_value(int value)
   cout << "-----------------------------\n";
 }
 
-void LRUCache::print_cache()
+void NaiveLRUCache::print_cache()
 {
   //Print cache for testing purposes
   cout << "-----------------------------\n";

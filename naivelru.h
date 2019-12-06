@@ -2,14 +2,14 @@
 
 using namespace std;
 
-class LRUCache{
+class NaiveLRUCache{
   private:
     list<int> cache_list;
     int cache_size;
 
   public:
 
-    LRUCache(int cs): cache_size(cs){};
+    NaiveLRUCache(int cs): cache_size(cs){};
 
     void access_value(int value);
     void print_cache();
