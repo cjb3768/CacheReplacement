@@ -78,8 +78,6 @@ int main(int argc, char* argv[])
     cache_max = stoi(argv[4]);
   }
 
-  cout << argv[1] << " " << argv[2] << " " << argv[3] << " " << argv[4] << endl;
-
   LRUCache randCache = LRUCache(cache_size);
   NaiveLRUCache  naiveRandCache = NaiveLRUCache(cache_size);
 
@@ -115,7 +113,7 @@ int main(int argc, char* argv[])
   cout << "=========\n";
   cout << " Results\n";
   cout << "=========\n";
-  
+
   cout << "Cache size: " << cache_size << endl;
   cout << "Num trials for cache: " << num_trials << endl;
   cout << "Minimum value for cache entries: " << cache_min << endl;
@@ -124,6 +122,6 @@ int main(int argc, char* argv[])
 
   cout << "LRU runtime (in ticks): " << lruTime << endl;
   cout << "LRU runtime (in seconds): " << lruTime/CLOCKS_PER_SEC << endl;
-  cout << "Naive LRU runtime (in ticks): " << lruTime << endl;
-  cout << "Naive LRU runtime (in seconds): " << lruTime/CLOCKS_PER_SEC << endl;
+  cout << "Naive LRU runtime (in ticks): " << naiveLruTime << endl;
+  cout << "Naive LRU runtime (in seconds): " << naiveLruTime/CLOCKS_PER_SEC << endl;
 }

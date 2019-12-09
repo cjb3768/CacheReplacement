@@ -23,7 +23,7 @@ void LRUCache::access_value(int value)
     //update position in cache_map
     cache_map[value] = cache_list.begin();
     //cout << "Value's position in cache map updated.\n";
-    cout << "Cache hit, " << value << "'s position in cache updated.\n";
+    //cout << "Cache hit, " << value << "'s position in cache updated.\n";
     return;
   }
 
@@ -34,7 +34,7 @@ void LRUCache::access_value(int value)
   if (cache_map.size() == cache_size)
   {
     //cache is full; remove least recently used element from map and list
-    cout << "Cache full; deleting least recently used value from back. ";
+    //cout << "Cache full; deleting least recently used value from back. ";
       cache_map.erase(cache_list.back());
     cache_list.pop_back();
   }
@@ -42,7 +42,7 @@ void LRUCache::access_value(int value)
   //add new value to list and map
   cache_list.push_front(value);
   cache_map.emplace(value, cache_list.begin());
-  cout << "Cache miss; " << value << " added to cache.\n";
+  //cout << "Cache miss; " << value << " added to cache.\n";
   //cout << "-----------------------------\n";
 
 }

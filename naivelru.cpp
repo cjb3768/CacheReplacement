@@ -23,7 +23,7 @@ void NaiveLRUCache::access_value(int value)
         cache_list.erase(it);
         //re-add to the front of the list
         cache_list.push_front(value);
-        cout << "Cache hit, " << value << "'s position in cache updated.\n";
+        //cout << "Cache hit, " << value << "'s position in cache updated.\n";
         return;
     }
     i++;
@@ -36,13 +36,13 @@ void NaiveLRUCache::access_value(int value)
   if (i == cache_size)
   {
     //cache is full; remove back of cache, the least recently used element
-    cout << "Cache full; deleting least recently used value from back. ";
+    //cout << "Cache full; deleting least recently used value from back. ";
     cache_list.pop_back();
   }
 
   //insert value at front of cache
   cache_list.push_front(value);
-  cout << "Cache miss; " << value << " added to cache.\n";
+  //cout << "Cache miss; " << value << " added to cache.\n";
   //cout << "-----------------------------\n";
 }
 
