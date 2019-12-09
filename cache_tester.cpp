@@ -94,7 +94,7 @@ int main(int argc, char* argv[])
 
   cout << "---\nLRU trials complete\n---\n";
   lruTime = (stop - start);
-  randCache.print_cache();
+  //randCache.print_cache();
 
   cout << "---\nBeginning NaiveLRU trials\n---\n";
 
@@ -106,7 +106,7 @@ int main(int argc, char* argv[])
 
   cout << "---\nNaiveLRU trials complete\n---\n";
   naiveLruTime = (stop - start);
-  naiveRandCache.print_cache();
+  //naiveRandCache.print_cache();
 
 
   //print results
