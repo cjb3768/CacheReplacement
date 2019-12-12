@@ -18,13 +18,14 @@ void NaiveLRUCache::access_value(int value)
     //cache hit
     if (*it == value)
     {
-        //cout << "Value found; removing from list and pushing to front.\n";
-        //remove the element from the cache_list
-        cache_list.erase(it);
-        //re-add to the front of the list
-        cache_list.push_front(value);
-        //cout << "Cache hit, " << value << "'s position in cache updated.\n";
-        return;
+      cache_hits++;
+      //cout << "Value found; removing from list and pushing to front.\n";
+      //remove the element from the cache_list
+      cache_list.erase(it);
+      //re-add to the front of the list
+      cache_list.push_front(value);
+      //cout << "Cache hit, " << value << "'s position in cache updated.\n";
+      return;
     }
     i++;
     it++;
@@ -32,6 +33,7 @@ void NaiveLRUCache::access_value(int value)
 
   //value was not present in cache; determine if we need to remove the back end before inserting value into cache
   //cout << "Value not present in cache. Attempting to add it to cache.\n";
+  cache_misses++;
 
   if (i == cache_size)
   {

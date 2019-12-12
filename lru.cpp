@@ -15,6 +15,7 @@ void LRUCache::access_value(int value)
   if (it != cache_map.end())
   {
     //cache hit
+    cache_hits++;
     //cout << "Value found; removing from list and pushing to front.\n";
     //remove the element from the cache_list
     cache_list.erase(cache_map[value]);
@@ -29,6 +30,7 @@ void LRUCache::access_value(int value)
 
   //value wasn't in the cache
   //cout << "Value not present in cache. Attempting to add it to cache.\n";
+  cache_misses++;
 
   //check to see if the cache is full
   if (cache_map.size() == cache_size)

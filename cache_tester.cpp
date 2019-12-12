@@ -60,10 +60,10 @@ int main(int argc, char* argv[])
     cache_size = stoi(argv[1]);
   }
 
-  int num_trials = 20;
+  int num_accesses = 20;
   if (argc >= 3)
   {
-    num_trials = stoi(argv[2]);
+    num_accesses = stoi(argv[2]);
   }
 
   int cache_min = 0;
@@ -84,10 +84,12 @@ int main(int argc, char* argv[])
   clock_t start, stop;
   double lruTime, naiveLruTime;
 
+  srand(time(0));
+
   cout << "---\nBeginning LRU trials\n---\n";
 
   start = clock();
-  for (int i =0; i < num_trials; i++){
+  for (int i =0; i < num_accesses; i++){
     randCache.access_value(rand() % cache_max + cache_min);
   }
   stop = clock();
@@ -99,7 +101,7 @@ int main(int argc, char* argv[])
   cout << "---\nBeginning NaiveLRU trials\n---\n";
 
   start = clock();
-  for (int i =0; i < num_trials; i++){
+  for (int i =0; i < num_accesses; i++){
     naiveRandCache.access_value(rand() % cache_max + cache_min);
   }
   stop = clock();
@@ -115,13 +117,22 @@ int main(int argc, char* argv[])
   cout << "=========\n";
 
   cout << "Cache size: " << cache_size << endl;
-  cout << "Num trials for cache: " << num_trials << endl;
+  cout << "Num accessess for cache: " << num_accesses << endl;
   cout << "Minimum value for cache entries: " << cache_min << endl;
   cout << "Maximum value for cache entries: " << cache_max << endl;
   cout << "\nCache results generated using the stdlib rand() function\n\n";
 
   cout << "LRU runtime (in ticks): " << lruTime << endl;
   cout << "LRU runtime (in seconds): " << lruTime/CLOCKS_PER_SEC << endl;
+  cout << "LRU average access time (in ticks): " << lruTime/num_accesses << endl;
+  cout << "LRU average access time (in seconds): " << lruTime/CLOCKS_PER_SEC/num_accesses << endl;
+  cout << "LRU cache hits: " << randCache.get_cache_hits() << endl;
+  cout << "LRU cache misses: " << randCache.get_cache_misses() << endl;
+  cout << endl;
   cout << "Naive LRU runtime (in ticks): " << naiveLruTime << endl;
   cout << "Naive LRU runtime (in seconds): " << naiveLruTime/CLOCKS_PER_SEC << endl;
+  cout << "Naive LRU average access time (in ticks): " << naiveLruTime/num_accesses << endl;
+  cout << "Naive LRU average access time (in seconds): " << naiveLruTime/CLOCKS_PER_SEC/num_accesses << endl;
+  cout << "Naive LRU cache hits: " << naiveRandCache.get_cache_hits() << endl;
+  cout << "Naive LRU cache misses: " << naiveRandCache.get_cache_misses() << endl;
 }
